@@ -3,6 +3,8 @@ import {useNavigate} from "react-router-dom";
 import {AppBar, Box, Button, Tab, Tabs, Toolbar, Typography, useMediaQuery, useTheme} from "@mui/material";
 import ApiIcon from '@mui/icons-material/Api';
 import SwipeableTemporaryDrawer from './drawer';
+
+
 const links = ["Shop","Gallery","About Us"];
 const falinks = ["فروشگاه","گالری","درباره ما"];
 const reversedfalinks = falinks.reverse();
@@ -12,22 +14,25 @@ const Header = () => {
     const muiTheme = useTheme();
     const isMatch = useMediaQuery(muiTheme.breakpoints.down('md'));
     const [lang,setLang] = useState('fa');
+    const [tab,setTabs] = useState('');
 
     const history = useNavigate();
-    const TabHandler = (event, newValue) => {
-        if(lang=='fa'){
-            const value = links.length - newValue
-            history('/shop/');
+    const TabHandler = (event,value) => {
+        let newValue = value;
+        if(lang == 'fa'){
+            newValue = links.length - value -1;
         }
-        else{
-            const value = newValue
+        if(lang == 'en'){
+            newValue = value;
+        }
+        if(newValue==0){
             history('/shop/');
         }
     };
 
     return (
-      <AppBar sx={{bgcolor:'transparent', boxShadow:'0', position:'sticky', backgroundImage:'background: rgb(2,0,36);\n' +
-              'background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,12,1) 35%, rgba(0,212,255,1) 100%);'}}>
+      <AppBar sx={{height:'100px',bgcolor:'transparent', boxShadow:'0', position:'sticky', backgroundImage:'background: rgb(247,213,255);\n' +
+              'background: linear-gradient(90deg, rgba(247,213,255,1) 0%, rgba(178,247,247,1) 100%);'}}>
           {!isMatch ?
           <>
           { lang=='en' ?
@@ -36,9 +41,9 @@ const Header = () => {
               <Box sx={{display:'flex',width:'100%',alignItems:'center', height:'100px'}}>
                 <ApiIcon sx={{color:'white'}}/>
                   <Box>
-                        <Tabs sx={{textDecoration:'none'}} onChange={TabHandler}>
+                        <Tabs sx={{textDecoration:'none'}} >
                             {links.map((link,index)=>(<Tab  label={link} key={index} sx={{color:'white',fontWeight:'bold',textDecoration:'none',
-                                ':hover':{textDecoration:'underline', textUnderlineOffset:'5px'}}}/>))}
+                                ':hover':{textDecoration:'underline', textUnderlineOffset:'5px'}}} onClick={(event)=>{TabHandler(event,index)}}/>))}
                         </Tabs>
                   </Box>
                   <Box display={'flex'} marginLeft={'auto'}>
@@ -66,11 +71,11 @@ const Header = () => {
               <Box sx={{display:'flex',width:'100%',alignItems:'center', height:'100px',justifyContent:"flex-end"}}>
                   <Box>
                       <Tabs sx={{textDecoration:'none'}} onChange={TabHandler}>
-                          {reversedfalinks.map((link,index)=>(<Tab  label={link} key={index} sx={{fontWeight:'bold', fontSize:'20px',textDecoration:'none',
+                          {reversedfalinks.map((link,index)=>(<Tab  label={link} key={index} sx={{color:'white',fontWeight:'bold', fontSize:'20px',textDecoration:'none',
                               ':hover':{textDecoration:'underline', textUnderlineOffset:'5px'}}}/>))}
                       </Tabs>
                   </Box>
-                  <ApiIcon sx={{color:'black'}}/>
+                  <ApiIcon sx={{color:'white'}}/>
               </Box>
           </Toolbar>
               </>}

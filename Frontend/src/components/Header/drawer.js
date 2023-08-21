@@ -88,12 +88,13 @@ export default function SwipeableTemporaryDrawer({link,lang}) {
         <div>
             {['left'].map((anchor) => (
                 <React.Fragment key={anchor}>
-                    <Button variant={'outlined'} onClick={toggleDrawer(anchor, true)}><MenuIcon sx={{bgcolor:'transparent'}}></MenuIcon></Button>
+                    <Button variant={'outlined'} onClick={toggleDrawer(anchor, true)} sx={{margin:'20px 0px 0px 20px'}}><MenuIcon sx={{bgcolor:'transparent'}}></MenuIcon></Button>
                     <SwipeableDrawer
                         anchor={anchor}
                         open={state[anchor]}
                         onClose={toggleDrawer(anchor, false)}
                         onOpen={toggleDrawer(anchor, true)}
+                        PaperProps={{ style: { width: 180, overflowX: 'hidden' } }}
                     >
                         {list(anchor)}
                     </SwipeableDrawer>
