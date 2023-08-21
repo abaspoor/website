@@ -1,19 +1,17 @@
-import './App.css';
-import Header from './components/Header/Header';
-import Marketitem from "./components/Market/marketitem";
 import React from "react";
-import Market from "./components/Market/market";
 import { BrowserRouter as Router } from "react-router-dom";
 import Main from "./layout/main";
-const linksArray = ['Products','Services','Overview','Contact Us'];
-const linksArrayFa = ['محصولات','خدمات','درباره ما','تماس با ما'];
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 function App() {
+    const theme = createTheme();
   return (
-    <div>
-        <Router>
-            <Main/>
-        </Router>
-    </div>
+      <>
+        <ThemeProvider theme={theme}>
+            <Router>
+                <Main/>
+            </Router>
+        </ThemeProvider>
+      </>
   );
 }
 

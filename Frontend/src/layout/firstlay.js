@@ -1,13 +1,11 @@
 import Header from '../components/Header/Header';
 import React from "react";
-const linksArray = ['Products','Services','Overview','Contact Us'];
-const linksArrayFa = ['محصولات','خدمات','درباره ما','تماس با ما'];
+import Advertising from "../components/Header/advertising";
 function Firstlay() {
     return (
         <div>
             <Header/>
-            <section>
-            </section>
+            <Advertising/>
         </div>
     );
 }
