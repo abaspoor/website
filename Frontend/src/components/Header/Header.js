@@ -6,7 +6,7 @@ import SwipeableTemporaryDrawer from './drawer';
 
 
 const links = ["Shop","Gallery","About Us"];
-const falinks = ["فروشگاه","گالری","درباره ما"];
+const falinks = ["خدمات","گالری","درباره ما"];
 const reversedfalinks = falinks.reverse();
 const drwfalinks = ["درباره ما","گالری","فروشگاه"];
 const Header = () => {
@@ -29,29 +29,32 @@ const Header = () => {
             history('/shop/');
         }
     };
-
+    const heighApp = isMatch ? '80px':'150px';
     return (
-      <AppBar sx={{height:'100px',bgcolor:'transparent', boxShadow:'0', position:'sticky', backgroundImage:'background: rgb(247,213,255);\n' +
-              'background: linear-gradient(90deg, rgba(247,213,255,1) 0%, rgba(178,247,247,1) 100%);'}}>
+      <AppBar sx={{height:heighApp,bgcolor:'#333133', boxShadow:'0', position:'sticky'}}>
           {!isMatch ?
           <>
           { lang=='en' ?
               <>
           <Toolbar>
-              <Box sx={{display:'flex',width:'100%',alignItems:'center', height:'100px'}}>
-                <ApiIcon sx={{color:'white'}}/>
-                  <Box>
+              <Box sx={{display:'flex',width:'100%',alignItems:'center', height:'100%'}}>
+                  <Box height={'100%'} marginTop={'100px'}>
+                <ApiIcon sx={{color:'white' , marginRight:'20px'}}/>
+                  </Box>
+                  <Box height={'100%'} marginTop={'100px'}>
                         <Tabs sx={{textDecoration:'none'}} >
                             {links.map((link,index)=>(<Tab  label={link} key={index} sx={{color:'white',fontWeight:'bold',textDecoration:'none',
                                 ':hover':{textDecoration:'underline', textUnderlineOffset:'5px'}}} onClick={(event)=>{TabHandler(event,index)}}/>))}
                         </Tabs>
                   </Box>
-                  <Box display={'flex'} marginLeft={'auto'}>
-                      <Button variant={'outlined'} sx={{marginRight:2, color:'white'}}>Contact Us</Button>
-                      <Button variant={'contained'} sx={{marginLeft:2, marginRight:2}}>Reservation</Button>
-                      <Box display={'flex'} flexDirection={'column'} sx={{marginRight:2, color:'white'}}>
-                          <Button variant={'outlined'} sx={{height:'7px',width:'7px' ,margin:'auto'}} onClick={() => setLang('fa')}>fa</Button>
-                          <Button variant={'contained'} sx={{height:'7px',width:'7px' ,margin:'auto'}} onClick={() => setLang('en')}>en</Button>
+                  <Box display={'flex'} marginLeft={'auto'} height={'100%'}>
+                      <Box height={'30%'} marginTop={'50px'}>
+                      <Button variant={'outlined'} sx={{marginRight:2, color:'#19999F'}}><Typography  color={'white'} fontSize={'15px'} fontWeight={'bold'}>Contact Us</Typography></Button>
+                      <Button variant={'contained'} sx={{marginLeft:2, marginRight:2, color:'#19999F'}}><Typography  color={'white'} fontSize={'15px'} fontWeight={'bold'}>Resevation</Typography></Button>
+                      </Box>
+                      <Box display={'flex'} flexDirection={'column'} sx={{marginRight:2, color:'white'}} marginTop={'50px'}>
+                          <Button variant={'outlined'} sx={{height:'7px',width:'7px' , marginBot:'10px'}} onClick={() => setLang('fa')}>fa</Button>
+                          <Button variant={'contained'} sx={{height:'7px',width:'7px' , marginTop:'10px'}} onClick={() => setLang('en')}>en</Button>
                       </Box>
                   </Box>
               </Box>
@@ -59,33 +62,41 @@ const Header = () => {
               </>
           :
               <>
-          <Toolbar sx={{display:'flex'}}>
-              <Box display={'flex'} marginRight={'auto'}>
-                  <Box display={'flex'} flexDirection={'column'} sx={{marginRight:2, color:'white'}}>
-                      <Button variant={'outlined'} sx={{height:'7px',width:'7px' ,margin:'auto'}} onClick={() => setLang('fa')}>fa</Button>
-                      <Button variant={'contained'} sx={{height:'7px',width:'7px' ,margin:'auto'}} onClick={() => setLang('en')}>en</Button>
-                  </Box>
-                  <Button variant={'contained'} sx={{marginRight:2, color:'white'}}>مشاوره</Button>
-                  <Button variant={'outlined'} sx={{marginRight:2, color:'white'}}>تماس</Button>
-              </Box>
-              <Box sx={{display:'flex',width:'100%',alignItems:'center', height:'100px',justifyContent:"flex-end"}}>
-                  <Box>
-                      <Tabs sx={{textDecoration:'none'}} onChange={TabHandler}>
-                          {reversedfalinks.map((link,index)=>(<Tab  label={link} key={index} sx={{color:'white',fontWeight:'bold', fontSize:'20px',textDecoration:'none',
-                              ':hover':{textDecoration:'underline', textUnderlineOffset:'5px'}}}/>))}
-                      </Tabs>
-                  </Box>
-                  <ApiIcon sx={{color:'white'}}/>
-              </Box>
-          </Toolbar>
+                  <Toolbar>
+                      <Box sx={{display:'flex',width:'100%',alignItems:'center', height:'100%'}}>
+                          <Box display={'flex'} marginRight={'auto'} height={'100%'}>
+                              <Box display={'flex'} flexDirection={'column'} sx={{marginRight:2, color:'white'}} marginTop={'50px'}>
+                                  <Button variant={'outlined'} sx={{height:'7px',width:'7px' , marginBot:'10px'}} onClick={() => setLang('fa')}>fa</Button>
+                                  <Button variant={'contained'} sx={{height:'7px',width:'7px' , marginTop:'10px'}} onClick={() => setLang('en')}>en</Button>
+                              </Box>
+                              <Box height={'30%'} marginTop={'50px'}>
+                                  <Button variant={'contained'} sx={{marginLeft:2, marginRight:2}}><Typography color={'white'} fontSize={'20px'} fontWeight={'bold'}>مشاوره</Typography></Button>
+                                  <Button variant={'outlined'} sx={{marginRight:2, color:'white'}}><Typography color={'white'} fontSize={'20px'} fontWeight={'bold'}>تماس با ما</Typography></Button>
+                              </Box>
+                          </Box>
+                          <Box height={'100%'} marginTop={'100px'}>
+                              <Tabs sx={{textDecoration:'none'}} >
+                                  {falinks.map((link,index)=>(<Tab  label={link} key={index} sx={{color:'white',fontSize:'20px',fontWeight:'bold',textDecoration:'none',
+                                      ':hover':{textDecoration:'underline', textUnderlineOffset:'5px'}}} onClick={(event)=>{TabHandler(event,index)}}/>))}
+                              </Tabs>
+                          </Box>
+                          <Box height={'100%'} marginTop={'100px'}>
+                              <ApiIcon sx={{color:'white', marginLeft:'20px'}}/>
+                          </Box>
+                      </Box>
+                  </Toolbar>
               </>}
           </>
           :
               <>
                   { lang=='en' ?
-              			<SwipeableTemporaryDrawer link={links} lang={lang}/>
+              			<Box sx={{display:'flex',width:'100%', height:'100%', marginTop:'2px'}}>
+                            <SwipeableTemporaryDrawer link={links} lang={lang}/>
+                        </Box>
                       :
-                      	<SwipeableTemporaryDrawer link={falinks} lang={lang}/>
+                      	<Box sx={{display:'flex',width:'100%', height:'100%', marginTop:'2px'}}>
+                            <SwipeableTemporaryDrawer link={falinks} lang={lang}/>
+                        </Box>
                   }
               </>}
       </AppBar>
