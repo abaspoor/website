@@ -4,7 +4,6 @@ import Advertising from "../components/Header/advertising";
 function Firstlay() {
     return (
         <div>
-            <Header/>
             <Advertising/>
         </div>
     );

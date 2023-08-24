@@ -26,9 +26,21 @@ const Header = () => {
             newValue = value;
         }
         if(newValue==0){
-            history('/shop/');
+            history('/services/');
+        }
+        if(newValue==1){
+            history('/gallery/');
+        }
+        if(newValue==2){
+            history('/aboutus/');
         }
     };
+    const ContactUs = (event) => {
+        window.open('https://wa.me/+989334593252/', '_blank');
+    };
+    const Callus = (event) => {
+        window.location.href = 'tel:+989334593252';
+    }
     const heighApp = isMatch ? '80px':'150px';
     return (
       <AppBar sx={{height:heighApp,bgcolor:'#333133', boxShadow:'0', position:'sticky'}}>
@@ -49,8 +61,8 @@ const Header = () => {
                   </Box>
                   <Box display={'flex'} marginLeft={'auto'} height={'100%'}>
                       <Box height={'30%'} marginTop={'50px'}>
-                      <Button variant={'outlined'} sx={{marginRight:2, color:'#19999F'}}><Typography  color={'white'} fontSize={'15px'} fontWeight={'bold'}>Contact Us</Typography></Button>
-                      <Button variant={'contained'} sx={{marginLeft:2, marginRight:2, color:'#19999F'}}><Typography  color={'white'} fontSize={'15px'} fontWeight={'bold'}>Resevation</Typography></Button>
+                      <Button variant={'outlined'} sx={{marginRight:2, color:'#19999F'}}><Typography  color={'white'} fontSize={'15px'} fontWeight={'bold'} onClick={event => ContactUs(event)}>Contact Us</Typography></Button>
+                      <Button variant={'contained'} sx={{marginLeft:2, marginRight:2, color:'#19999F'}}><Typography  color={'white'} fontSize={'15px'} fontWeight={'bold'} onClick={ event => Callus(event)}>Reservation</Typography></Button>
                       </Box>
                       <Box display={'flex'} flexDirection={'column'} sx={{marginRight:2, color:'white'}} marginTop={'50px'}>
                           <Button variant={'outlined'} sx={{height:'7px',width:'7px' , marginBot:'10px'}} onClick={() => setLang('fa')}>fa</Button>
@@ -70,8 +82,8 @@ const Header = () => {
                                   <Button variant={'contained'} sx={{height:'7px',width:'7px' , marginTop:'10px'}} onClick={() => setLang('en')}>en</Button>
                               </Box>
                               <Box height={'30%'} marginTop={'50px'}>
-                                  <Button variant={'contained'} sx={{marginLeft:2, marginRight:2}}><Typography color={'white'} fontSize={'20px'} fontWeight={'bold'}>مشاوره</Typography></Button>
-                                  <Button variant={'outlined'} sx={{marginRight:2, color:'white'}}><Typography color={'white'} fontSize={'20px'} fontWeight={'bold'}>تماس با ما</Typography></Button>
+                                  <Button variant={'contained'} sx={{marginLeft:2, marginRight:2}}><Typography color={'white'} fontSize={'20px'} fontWeight={'bold'} onClick={event => ContactUs(event)}>مشاوره</Typography></Button>
+                                  <Button variant={'outlined'} sx={{marginRight:2, color:'white'}}><Typography color={'white'} fontSize={'20px'} fontWeight={'bold'} onClick={ event => Callus(event)}>تماس با ما</Typography></Button>
                               </Box>
                           </Box>
                           <Box height={'100%'} marginTop={'100px'}>
