@@ -17,6 +17,7 @@ const mystyle = makeStyles(theme => ({
         },
     },
     myDIV: {
+
         width: '600px',
         height: '300px',
         backgroundImage: `url(${LAYER2})`,
