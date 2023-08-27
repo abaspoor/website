@@ -8,6 +8,7 @@ import Mysvg from "./svgcourse/svgtest";
 import Svgproj1 from "./svgprojects/project1/project1";
 function App() {
     const theme = createTheme();
+
   return (
       <>
           <ThemeProvider theme={theme}>
