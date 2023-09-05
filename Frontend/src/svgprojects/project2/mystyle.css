@@ -1,0 +1,45 @@
+.main {
+
+}
+.hill1 {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+}
+.hill2 {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 3;
+}
+.hill3 {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 3;
+}
+.hill4 {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 3;
+}
+.leaf {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 4;
+}
+.plant {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 4;
+}
+.tree {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 4;
+}

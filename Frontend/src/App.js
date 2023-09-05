@@ -6,6 +6,7 @@ import VisitCard from './components/visitcard/visitcard';
 import Header from "./components/Header/Header";
 import Mysvg from "./svgcourse/svgtest";
 import Svgproj1 from "./svgprojects/project1/project1";
+import Animatedjungle from "./svgprojects/project2/animatedjungle";
 function App() {
     const theme = createTheme();
 
@@ -17,7 +18,8 @@ function App() {
                   {/*<Main/>*/}
                   {/*<VisitCard/>*/}
                   {/*<Mysvg/>*/}
-                  <Svgproj1/>
+                  {/*<Svgproj1/>*/}
+                  <Animatedjungle/>
               </Router>
         </ThemeProvider>
       </>
